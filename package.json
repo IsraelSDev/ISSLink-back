@@ -11,13 +11,16 @@
     "multer": "^1.4.5-lts.1",
     "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
+    "tsup": "^7.2.0",
+    "tsx": "^3.12.8",
     "yup": "^1.2.0"
   },
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
-    "prod": ".env.prod tsconfig-paths/register node_modules src/shared/http/server.ts",
+    "build": "tsup src",
+    "start": "node dist/shared/http/server.js",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
     "pret": "prettier --write ."
